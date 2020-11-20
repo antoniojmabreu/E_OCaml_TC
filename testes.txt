@@ -1,0 +1,139 @@
+in:
+8
+S -> a B D h
+B -> c C
+C -> b C
+D -> E F
+E -> g
+E -> _
+F -> f
+F -> _
+
+out:
+NULL(S) = False
+NULL(B) = False
+NULL(C) = False
+NULL(D) = True
+NULL(E) = True
+NULL(F) = True
+FIRST(S) = a
+FIRST(B) = c
+FIRST(C) = b
+FIRST(D) = f g
+FIRST(E) = g
+FIRST(F) = f
+FOLLOW(S) = #
+FOLLOW(B) = f g h
+FOLLOW(C) = f g h
+FOLLOW(D) = h
+FOLLOW(E) = f h
+FOLLOW(F) = h
+
+--------------------------------------------------
+
+in:
+9
+S -> A C B
+S -> C b b
+S -> B a
+A -> d a
+A -> B C
+B -> g
+B -> _
+C -> h
+C -> _
+
+out:
+NULL(S) = True
+NULL(A) = True
+NULL(B) = True
+NULL(C) = True
+FIRST(S) = a b d g h
+FIRST(A) = d g h
+FIRST(B) = g
+FIRST(C) = h
+FOLLOW(S) = #
+FOLLOW(A) = # g h
+FOLLOW(B) = # g h
+FOLLOW(C) = # b g h
+
+--------------------------------------------------
+
+in:
+6
+S -> A B S
+S -> d
+A -> B
+A -> a
+B -> c
+B -> _
+
+out:
+NULL(S) = False
+NULL(A) = True
+NULL(B) = True
+FIRST(S) = a c d
+FIRST(A) = a c
+FIRST(B) = c
+FOLLOW(S) = #
+FOLLOW(A) = a c d
+FOLLOW(B) = a c d
+
+--------------------------------------------------
+
+in:
+8
+S -> A b B e
+S -> d
+A -> C e A b
+A -> B
+B -> g S d
+B -> _
+C -> a
+C -> e
+
+out:
+NULL(S) = False
+NULL(A) = True
+NULL(B) = True
+NULL(C) = False
+FIRST(S) = a b d e g
+FIRST(A) = a e g
+FIRST(B) = g
+FIRST(C) = a e
+FOLLOW(S) = # d
+FOLLOW(A) = b
+FOLLOW(B) = b e
+FOLLOW(C) = e
+
+--------------------------------------------------
+
+in:
+8
+S -> T G
+F -> l S r
+F -> i
+G -> p T G
+G -> _
+H -> f F H
+H -> _
+T -> F H
+
+out:
+NULL(S) = False
+NULL(F) = False
+NULL(G) = True
+NULL(H) = True
+NULL(T) = False
+FIRST(S) = i l
+FIRST(F) = i l
+FIRST(G) = p
+FIRST(H) = f
+FIRST(T) = i l
+FOLLOW(S) = # r
+FOLLOW(F) = # f p r
+FOLLOW(G) = # r
+FOLLOW(H) = # p r
+FOLLOW(T) = # p r
+
+
